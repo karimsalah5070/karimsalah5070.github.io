@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Schedule</title>
+
+  <style>
+    :root {
+      --bg: #000;
+      --card: #020617;
+      --text: #e5e7eb;
+      --muted: #6b7280;
+      --accent: #38bdf8;
+      --course: #fde047;
+      --time: #4ade80;
+    }
+
+    .light {
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --course: #ca8a04;
+      --time: #16a34a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    /* زرار */
+    .toggle-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: var(--card);
+      border: 1px solid var(--muted);
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    /* title */
+    h1 {
+      text-align: center;
+      margin: 60px 0 20px;
+      color: var(--accent);
+    }
+
+    /* ===== DESKTOP TABLE ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+    }
+
+    th,
+    td {
+      padding: 15px;
+      text-align: center;
+    }
+
+    thead {
+      background: var(--bg);
+      color: var(--muted);
+    }
+
+    tr {
+      border-bottom: 1px solid var(--muted);
+    }
+
+    .course {
+      color: var(--course);
+      font-weight: bold;
+    }
+
+    .time {
+      color: var(--time);
+      font-weight: bold;
+    }
+
+    /* ===== MOBILE CARDS ===== */
+    .cards {
+      display: none;
+    }
+
+    .card {
+      background: var(--card);
+      margin: 10px;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .card div {
+      margin: 6px 0;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      table {
+        display: none;
+      }
+
+      .cards {
+        display: block;
+      }
+
+      h1 {
+        margin-top: 70px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <button class="toggle-btn" onclick="toggleTheme()">🌙</button>
+
+  <h1>Final Exams</h1>
+
+  <!-- DESKTOP -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Date</th>
+        <th>Course</th>
+        <th>Hall</th>
+        <th>Place</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Monday</td>
+        <td>2026-05-18</td>
+        <td class="course">Discrete Mathematics</td>
+        <td>21</td>
+        <td>مدرج 6</td>
+        <td class="time">09:30</td>
+      </tr>
+      <tr>
+        <td>Wednesday</td>
+        <td>2026-05-20</td>
+        <td class="course">Electronics-1</td>
+        <td>21</td>
+        <td>مدرج 6</td>
+        <td class="time">09:30</td>
+      </tr>
+      <tr>
+        <td>Sunday</td>
+        <td>2026-05-24</td>
+        <td class="course">Internet Tech</td>
+        <td>21</td>
+        <td>مدرج 6</td>
+        <td class="time">09:30</td>
+      </tr>
+      <tr>
+        <td>Monday</td>
+        <td>2026-06-01</td>
+        <td class="course">Programming-1</td>
+        <td>12ب</td>
+        <td>بدروم</td>
+        <td class="time">09:30</td>
+      </tr>
+      <tr>
+        <td>Thursday</td>
+        <td>2026-06-04</td>
+        <td class="course">Math-2</td>
+        <td>13</td>
+        <td>مدرج 1</td>
+        <td class="time">09:30</td>
+      </tr>
+      <tr>
+        <td>Saturday</td>
+        <td>2026-06-06</td>
+        <td class="course">Probability</td>
+        <td>1</td>
+        <td>مدرج 3</td>
+        <td class="time">12:00</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- MOBILE -->
+
+  <div class="cards">
+
+    <div class="card">
+      <div><span class="label">Day:</span> Monday</div>
+      <div><span class="label">Date:</span> 2026-05-18</div>
+      <div class="course">Discrete Mathematics</div>
+      <div><span class="label">Place:</span> مدرج 6</div>
+      <div class="time">09:30 - 11:30</div>
+    </div>
+
+    <div class="card">
+      <div><span class="label">Day:</span> Wednesday</div>
+      <div><span class="label">Date:</span> 2026-05-20</div>
+      <div class="course">Electronics-1</div>
+      <div><span class="label">Place:</span> مدرج 6</div>
+      <div class="time">09:30 - 11:30</div>
+    </div>
+
+    <div class="card">
+      <div><span class="label">Day:</span> Sunday</div>
+      <div><span class="label">Date:</span> 2026-05-24</div>
+      <div class="course">Internet Technology</div>
+      <div><span class="label">Place:</span> مدرج 6</div>
+      <div class="time">09:30 - 11:30</div>
+    </div>
+
+    <div class="card">
+      <div><span class="label">Day:</span> Monday</div>
+      <div><span class="label">Date:</span> 2026-06-01</div>
+      <div class="course">Programming-1</div>
+      <div><span class="label">Place:</span> بدروم</div>
+      <div class="time">09:30 - 11:30</div>
+    </div>
+
+    <div class="card">
+      <div><span class="label">Day:</span> Thursday</div>
+      <div><span class="label">Date:</span> 2026-06-04</div>
+      <div class="course">Math-2</div>
+      <div><span class="label">Place:</span> مدرج 1</div>
+      <div class="time">09:30 - 11:30</div>
+    </div>
+
+    <div class="card">
+      <div><span class="label">Day:</span> Saturday</div>
+      <div><span class="label">Date:</span> 2026-06-06</div>
+      <div class="course">Probability</div>
+      <div><span class="label">Place:</span> مدرج 3</div>
+      <div class="time">12:00 - 14:00</div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+      localStorage.setItem("theme",
+        document.body.classList.contains("light") ? "light" : "dark"
+      );
+    }
+
+    /* حفظ الاختيار */
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light");
+    }
+  </script>
+
+</body>
+
+</html>
